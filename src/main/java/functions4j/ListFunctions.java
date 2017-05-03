@@ -3,8 +3,29 @@ package functions4j;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility list functions not found in standard Java.
+ *
+ * @author Oscar Ahlén
+ */
 public class ListFunctions
 {
+    /**
+     * Takes a given list of type T and splits it into a number of equally sized sub lists.
+     * <br><br>
+     * <b>Example:</b>
+     * <br>
+     * split( [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4 ) -> [ [1, 2, 3], [4, 5, 6], [7, 8], [9, 10] ]
+     * <br><br>
+     * <b>Caution:</b><br>
+     * This method uses {@link java.util.List#subList(int, int)} for splitting up the original list.
+     *
+     * @param list  the list to be split
+     * @param parts the desired number of sub lists the given list should be split into
+     * @param <T>   The list content type
+     * @return a list of lists of type T
+     * @see java.util.List#subList(int, int)
+     */
     public static <T> List<List<T>> split( List<T> list, int parts )
     {
         if ( parts < 1 )
@@ -27,6 +48,21 @@ public class ListFunctions
         return lists;
     }
 
+    /**
+     * Takes a given list and partitions it into a collection of sub lists of specific size.
+     * <br><br>
+     * <b>Example:</b>
+     * <br>
+     * split( [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4 ) -> [ [1, 2, 3, 4], [5, 6, 7, 8], [9, 10] ]
+     * <br><br>
+     * <b>Caution:</b><br>
+     * This method uses {@link java.util.List#subList(int, int)} for partitioning the original list.
+     *
+     * @param list the list to be partitioned
+     * @param size the desired size of the sub list partitions
+     * @param <T>  The list content type
+     * @return a list of lists of type T
+     */
     public static <T> List<List<T>> partition( List<T> list, int size )
     {
         if ( size < 1 )
